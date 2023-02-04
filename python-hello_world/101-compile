@@ -1,27 +1,27 @@
-#!/usr/bin/python3
+#!/bin/bash
 
-import sys
+PYFILE="$1"
 
-import os
+if [ ! -f "$PYFILE" ]; then
 
-import py_compile
+    echo "$PYFILE: No such file or directory" >&2
 
-pyfile = os.environ.get('PYFILE')
+        exit 1
 
-if not pyfile:
+        fi
 
-    sys.stderr.write("ERROR: PYFILE environment variable is not set\n")
+        OUTFILE="$PYFILE""c"
 
-    sys.exit(1)
+        python3 -m compileall "$PYFILE"
 
-try:
+        if [ -f "$OUTFILE" ]; then
 
-    py_compile.compile(pyfile)
+            echo "Compiling $PYFILE ..."
 
-    sys.stdout.write(f"Compiling {pyfile} ...\n")
+        else
 
-except Exception as e:
+            echo "Compilation of $PYFILE failed" >&2
 
-    sys.stderr.write(f"ERROR: Compiling {pyfile} failed: {e}\n")
+                exit 1
 
-    sys.exit(1)
+                fi
