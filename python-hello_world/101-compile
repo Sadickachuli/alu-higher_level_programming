@@ -1,27 +1,5 @@
 #!/bin/bash
-
-PYFILE="$1"
-
-if [ ! -f "$PYFILE" ]; then
-
-    echo "$PYFILE: No such file or directory" >&2
-
-        exit 1
-
-        fi
-
-        OUTFILE="$PYFILE""c"
-
-        python3 -m compileall "$PYFILE"
-
-        if [ -f "$OUTFILE" ]; then
-
-            echo "Compiling $PYFILE ..."
-
-        else
-
-            echo "Compilation of $PYFILE failed" >&2
-
-                exit 1
-
-                fi
+echo "Compiling $PYFILE ..."
+/usr/bin/py3compile $PYFILE && mv 
+_pycache_/$(ls_pycache/)$PYFILE'c'
+&& rmdir _pycache_
