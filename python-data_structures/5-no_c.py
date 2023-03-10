@@ -9,4 +9,4 @@ def no_c(my_string):
             # If it's not, add it to the result
             result += c
     # Return the result string
-    return 
+    return result
