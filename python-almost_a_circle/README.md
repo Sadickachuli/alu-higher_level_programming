@@ -1,4 +1,5 @@
 python-almost_a_circle
+
 For this particular project, I created three interconnected classes in Python to represent rectangles and squares, using my skills in object-oriented programming. To ensure their proper functionality, I wrote a test suite using the unittest module, containing three independently-developed test files. 
 
 The three classes utilize several tools in Python, including import exceptions, private attributes, getter/setter methods, class/static methods, inheritance, file input/output, and serialization/deserialization with JSON and CSV formats.
