@@ -1,16 +1,19 @@
 #!/usr/bin/python3
-"""Write a script that lists all states from the database -  Module"""
-
+"""List states -  Module"""
+import MySQLdb
+from sys import argv
 
 if __name__ == "__main__":
-    from sys import argv
-    import MySQLdb
-    db = MySQLdb.connect(host="localhost", user=argv[1],
-                         passwd=argv[2], db=argv[3])
-    cur = db.cursor()
-    cur.execute("SELECT id, name FROM states ORDER BY states.id ASC")
-    rows = cur.fetchall()
+    db = MySQLdb.connect(
+            host='localhost',
+            port=3306,
+            user=argv[1],
+            passwd=argv[2],
+            db=argv[3])
+    cursor = db.cursor()
+    cursor.execute("SELECT * FROM states ORDER BY states.id ASC")
+    rows = cursor.fetchall()
     for row in rows:
         print(row)
-    cur.close()
-    db.close())
+    cursor.close()
+    db.close()
