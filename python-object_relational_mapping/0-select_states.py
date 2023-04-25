@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Write a script that lists all states from the database"""
+"""Write a script that lists all states from the database -  Module"""
 
 
 if __name__ == "__main__":
